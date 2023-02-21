@@ -12,27 +12,29 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <style>
-        .bg-custom {
-  background-color: lightgray;
 
-}
-.app
-{
-    height: 40px;
-}
-    </style>
+
 </head>
+
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md bg-custom shadow-sm ">
+    <style>
+        .nav-link {
+            color: aliceblue;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover {
+            color: aliceblue;
+        }
+        </style>
+    <div id="app" class="cc">
+        <nav class="navbar navbar-expand-md ">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                <a class="xxx" href="{{ route('home.index') }}">Blogger</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -82,17 +84,12 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div>            @yield('content')
+        <div class="">
+            <div>      
+                      @yield('content')
             </div>
 
 
-        </main>
-        <footer>
-            <div class="footer">
-                @include('layouts.footer')
-            </div>
-        </footer>
-    </div>
+
 </body>
 </html>
