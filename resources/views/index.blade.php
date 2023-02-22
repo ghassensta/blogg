@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<style>
 
- 
-
-</style>
 
 <div class="img">
     <h1>Welcome to my blogger
@@ -34,6 +30,14 @@
     <Span>Software Engeniring</Span></nav>
 
 </div>
+
+
+<div class="recet">
+    <h1>Recent Posts</h1>
+
+    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque voluptatem ipsa cupiditate fuga impedit blanditiis culpa, deleniti facere quisquam vel laborum ab qui nesciunt provident quam? Veniam non, labore quidem doloremque, doloribus necessitatibus odio quod facilis asperiores delectus provident iste? Facere deserunt odio labore, ipsa, nihil a natus officiis, corrupti earum veritatis in deleniti aut ratione perferendis facilis cumque! Rerum minima aut culpa ratione asperiores laudantium dicta sequi exercitationem molestias corrupti accusamus, aperiam ullam officiis ad esse unde nulla itaque sed, magnam in deleniti. Veritatis asperiores omnis, nobis odio maxime expedita voluptate unde hic architecto cupiditate at ipsum. Dolores, quisquam!</h3>
+</div>
+
 
 
         <div class="footer ">
