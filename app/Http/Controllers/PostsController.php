@@ -18,7 +18,9 @@ class PostsController extends Controller
     public function index()
     {
 
-        $post=Post::with('users')->get();
+
+
+    $post = Post::with('users')->paginate(3);
         $user=User::all();
 
        //dd($post);

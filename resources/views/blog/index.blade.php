@@ -32,9 +32,13 @@
         <a class="p3" href="/edf">Read More </a>
     </div>
 </div>
+
+
 @endforeach
 
-
+<div class="d-flex justify-content-center mb-5">
+    {{ $post->links() }}
+</div>
 
 
 
