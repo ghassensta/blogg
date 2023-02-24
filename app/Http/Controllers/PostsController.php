@@ -81,9 +81,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(string $id)
     {
-        //
+
+        $red = Post::findOrFail($id); // récupère le modèle en fonction de l'ID, ou renvoie une erreur 404 si non trouvé
+        return view('blog.show', compact('red')); // renvoie la vue avec le modèle en tant que variable
     }
 
     /**

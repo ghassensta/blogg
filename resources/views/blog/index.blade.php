@@ -24,20 +24,30 @@
         <img src="{{ asset('storage/' . $key->image) }}" alt="image">
     </div>
     <div class="para">
-        <h2>{{$key->title}}</h2>
-        <p class="p11"><span>By:</span> <span class="non">{{$key->users->name}} </span> <span class="non">On</span> <span class="non">{{$key->created_at}}</span> </p>
+
+<img src="{{$key->title}}" alt="image">      
+
+  <p class="p11"><span>By:</span> <span class="non">{{$key->users->name}} </span> <span class="non">On</span> <span class="non">{{$key->created_at}}</span> </p>
 
         <p class="p2">{{$key->description}}</p> 
 
-        <a class="p3" href="/edf">Read More </a>
+        <a class="p3" href="{{ route('home.show', ['id' => $key->id]) }}">Read More </a>
     </div>
 </div>
 
 
 @endforeach
 
-<div class="d-flex justify-content-center mb-5">
-    {{ $post->links() }}
+
+<style>
+    .pag{
+        background-color: rgb(255, 255, 255);
+    }
+</style>
+
+
+<div  class="d-flex justify-content-center mb-5 mt-5">
+    {{ $post->links('pagination::simple-bootstrap-5') }}
 </div>
 
 
@@ -47,16 +57,5 @@
 
 
 
-<div class="footer ">
-    <ul>
-        <ol > <a class="xxxx" href="">Blogger</a> </ol>
-        
-        <ol class="list">Home</ol>
-        <ol class="list">Contact</ol>
-        <ol class="list">About</ol>
-
-    </ul>
-
-</div>
 
 @endsection
