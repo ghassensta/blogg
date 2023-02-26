@@ -22,6 +22,8 @@ Route::get('show/{id}',[PostsController::class,'show'])->name('home.show');
 Route::get('/post/edit/{post}', [PostsController::class, 'edit'])->name('home.edit');
 
 Route::Post('blog/store',[PostsController::class,'store'])->name('home.store');
+Route::put('/post/update/{post}', [PostsController::class, 'update'])->name('home.update');
+
 Route::delete('/blog/destroy/{post}', [PostsController::class, 'destroy'])->name('home.destroy');
 
 Route::get('/', [PageController::class,'index'])->name('home.index');

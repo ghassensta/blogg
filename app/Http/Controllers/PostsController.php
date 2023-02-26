@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+
+
+    function optimiser(object $ch, string $name): string
+    {
+        $imageName = $name .time() . '.' . $ch->extension();
+        $ch->move(public_path('public/storage/uploads'), $imageName);
+        return $imageName;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -100,7 +109,7 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         $user = User::all();
-        dd($post,$user);
+        //dd($post,$user);
         return view('blog.edit', compact('post', 'user'));
     }
 
@@ -111,10 +120,39 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        //dd($request);
+      $request->validate([
+        'title' => 'required',
+        'description' => 'required',
+    ]);
+
+/*     if ($request->hasFile('img')){
+        $imageName = $this->optimiser($request->img,"image");
+    }else{
+
+        $imageName=$request->oldimg;
+
+    } */
+
+    if($request->hasFile('img')){
+        $imageName = time() . '.' . $request->img->extension();
+        $request->img->move(public_path('build/storage/uploads'), $imageName);
+
+    }else{
+
+        $imageName=$request->oldimg;
+
     }
+
+    $post = Post::find($post->id);
+    $post->title = $request->title;
+    $post->description = $request->description;
+    $post->image = $imageName;
+
+    $post->save();
+    return redirect()->route('home.show');}
 
     /**
      * Remove the specified resource from storage.

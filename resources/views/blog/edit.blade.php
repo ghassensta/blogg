@@ -4,15 +4,14 @@
 
 {{-- <img src="{{ asset('storage/' . $post->image) }}" alt="image">
  --}}
-<form action="" method="POST" enctype="multipart/form-data" >
+<form action="{{ route('home.update',$post->id)}}" method="POST" enctype="multipart/form-data" >
     @csrf
     @method('PUT')
 <label for="">titre</label>
 <input type="text" name="title" class="form-control" value="{{$post->title}}">
 <br>
 
-<input type="file" name="image" class="form-control" accept="image/*" value="{{$post->image}}">
-
+<input type="file" name="img" class="form-control" accept="image/*" value="{{ $post->image }}">
 <input type="hidden" name="oldimg" class="form-control" accept="image/*" value="{{ $post->image }}">
 
 <br>
