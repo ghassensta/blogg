@@ -25,8 +25,7 @@
     </div>
     <div class="para">
 
-<img src="{{$key->title}}" alt="image">      
-
+<h2>{{$key->title}}</h2>
   <p class="p11"><span>By:</span> <span class="non">{{$key->users->name}} </span> <span class="non">On</span> <span class="non">{{$key->created_at}}</span> </p>
 
         <p class="p2">{{$key->description}}</p> 

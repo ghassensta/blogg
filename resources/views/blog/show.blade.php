@@ -1,7 +1,9 @@
 
 
 
-    
+
+    <head>     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    </head>
     
 <div class="con ">
     <div>
@@ -15,6 +17,28 @@
         <p class="p2">{{$red->description}}</p> 
 
     </div>
+
+    <style>
+        .btnuser{
+            color: aliceblue;
+            padding: 10px;
+            background-color: rgba(255, 0, 0, 0.849);
+            border-color: red;
+            font-weight: 600;
+            margin-left: 75%;
+        }
+    </style>
+
+</div>
+<div class="btnu">
+    @if (auth()->check() && $red->user_id == auth()->user()->id)
+    <form method="post" action="{{route('home.destroy',$red)}}">
+        @csrf
+        @method('DELETE')
+        <button  class="btnuser"type="submit">
+            <i >delete</i>
+        </button>
+    </form>@endif
 </div>
 
 
