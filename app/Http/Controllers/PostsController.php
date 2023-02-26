@@ -20,7 +20,7 @@ class PostsController extends Controller
 
 
 
-    $post = Post::with('users')->paginate(3);
+    $post = Post::with('users')->paginate(6);
         $user=User::all();
 
        //dd($post);
@@ -84,8 +84,10 @@ class PostsController extends Controller
     public function show(string $id)
     {
 
-        $red = Post::findOrFail($id); // récupère le modèle en fonction de l'ID, ou renvoie une erreur 404 si non trouvé
-        return view('blog.show', compact('red')); // renvoie la vue avec le modèle en tant que variable
+        $red = Post::findOrFail($id);
+       // dd($red) ;
+        // récupère le modèle en fonction de l'ID, ou renvoie une erreur 404 si non trouvé
+        return view('blog.show', ['red' => $red]); // renvoie la vue avec le modèle en tant que variable
     }
 
     /**
@@ -96,7 +98,10 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        $user = User::all();
+        dd($post,$user);
+        return view('blog.edit', compact('post', 'user'));
     }
 
     /**

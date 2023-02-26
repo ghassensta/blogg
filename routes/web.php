@@ -19,9 +19,10 @@ use App\Http\Controllers\PostsController;
 
 Route::get('/blog/create', [PostsController::class,'create'])->name('home.create');
 Route::get('show/{id}',[PostsController::class,'show'])->name('home.show');
-Route::delete('/blog/destroy/{post}', [PostsController::class, 'destroy'])->name('home.destroy');
+Route::get('/post/edit/{post}', [PostsController::class, 'edit'])->name('home.edit');
 
 Route::Post('blog/store',[PostsController::class,'store'])->name('home.store');
+Route::delete('/blog/destroy/{post}', [PostsController::class, 'destroy'])->name('home.destroy');
 
 Route::get('/', [PageController::class,'index'])->name('home.index');
 Route::get('blog', [PostsController::class,'index'])->name('home.blog');

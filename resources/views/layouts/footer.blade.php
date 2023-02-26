@@ -1,4 +1,10 @@
+    <style>
+    .footer{
+    }</style>
+
 <div class="footer ">
+
+
     <ul>
         <ol > <a class="xxxx" href="">Blogger</a> </ol>
         
