@@ -42,7 +42,7 @@
 <input type="text" name="title" class="form-control">
 <br>
 
-<input type="file" name="image" class="form-control" accept="image/*">
+<input type="file" name="img" class="form-control" accept="image/*">
 <br>
 @foreach ($user as $key )
     

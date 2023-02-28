@@ -15,7 +15,7 @@ class PostsController extends Controller
     function optimiser(object $ch, string $name): string
     {
         $imageName = $name .time() . '.' . $ch->extension();
-        $ch->move(public_path('public/storage/uploads'), $imageName);
+        $ch->move(public_path('assets/images/produits'), $imageName);
         return $imageName;
     }
 
@@ -67,13 +67,15 @@ class PostsController extends Controller
         ]);
             
     
-           $image = $request->file('image')->store('uploads','public');
+        if ($request->hasFile('img')){
+            $imageName = $this->optimiser($request->img,"image");
+        }
    
         
         $post = Post::create([
 
             'title' => $request->title,
-           'image' => $image,
+           'image' => $imageName,
             'description' =>$request->description,
             'user_id' =>$request->user_id,
         ]);
@@ -122,24 +124,34 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //dd($request);
+      // dd($request);
       $request->validate([
         'title' => 'required',
         'description' => 'required',
     ]);
 
 /*     if ($request->hasFile('img')){
+
         $imageName = $this->optimiser($request->img,"image");
+    } else{
+
+        $imageName=$request->oldimg;
+
+    }   */
+
+   /*  if($request->hasFile('img')){
+        $imageName = time() . '.' . $request->img->extension();
+        $request->img->move(public_path('storage/.'), $imageName);
+
     }else{
 
         $imageName=$request->oldimg;
 
-    } */
+    }  */
 
-    if($request->hasFile('img')){
-        $imageName = time() . '.' . $request->img->extension();
-        $request->img->move(public_path('build/storage/uploads'), $imageName);
-
+    
+    if ($request->hasFile('img')){
+        $imageName = $this->optimiser($request->img,"image");
     }else{
 
         $imageName=$request->oldimg;
@@ -150,9 +162,10 @@ class PostsController extends Controller
     $post->title = $request->title;
     $post->description = $request->description;
     $post->image = $imageName;
+    //dd($post);
 
     $post->save();
-    return redirect()->route('home.show');}
+    return redirect()->route('home.blog');}
 
     /**
      * Remove the specified resource from storage.

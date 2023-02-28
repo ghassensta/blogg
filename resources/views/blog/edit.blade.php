@@ -2,8 +2,8 @@
 
 @section('content')
 
-{{-- <img src="{{ asset('storage/' . $post->image) }}" alt="image">
- --}}
+ {{-- <img src="{{ asset('storage/' . $post->image) }}" alt="image"> --}}
+ 
 <form action="{{ route('home.update',$post->id)}}" method="POST" enctype="multipart/form-data" >
     @csrf
     @method('PUT')

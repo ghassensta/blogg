@@ -8,7 +8,7 @@
     
 <div class="con ">
     <div>
-        <img src="{{ asset('storage/' . $red->image)  }}" alt="image">
+        <img src="{{asset('assets/images/produits') }}/{{$red->image}}" alt="image">
 
     </div>
     <div class="para">
@@ -33,9 +33,12 @@
         <button  class="btnuser"type="submit">
             <i >delete</i>
         </button>
+        <a href="{{ route('home.edit',$red) }}"><button  class="btnuserr"type="button">
+            <i >update</i>
+        </button></a>
     </form>@endif
         
-    <a href="{{ route('home.edit',$red) }}">rqefes</a>
+   </a>
 
 </div>
 

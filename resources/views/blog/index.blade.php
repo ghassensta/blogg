@@ -21,7 +21,7 @@
     
 <div class="con ">
     <div>
-        <img src="{{ asset('storage/' . $key->image) }}" alt="image">
+        <img src="{{asset('assets/images/produits') }}/{{$key->image}}" alt="image">
     </div>
     <div class="para">
 
