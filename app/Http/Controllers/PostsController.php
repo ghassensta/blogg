@@ -95,10 +95,12 @@ class PostsController extends Controller
     public function show(string $id)
     {
 
-        $red = Post::findOrFail($id);
+        $post = Post::findOrFail($id);
+        $user = User::all();
+
+
        // dd($red) ;
-        // récupère le modèle en fonction de l'ID, ou renvoie une erreur 404 si non trouvé
-        return view('blog.show', ['red' => $red]); // renvoie la vue avec le modèle en tant que variable
+        return view('blog.show', ['post' => $post],['user' => $user]); 
     }
 
     /**

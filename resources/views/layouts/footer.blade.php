@@ -1,6 +1,3 @@
-    <style>
-    .footer{
-    }</style>
 
 <div class="footer ">
 
